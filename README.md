@@ -1,6 +1,9 @@
-# <font color=#00B2EE>smssdk</font>
+/*
+Title: smssdk
+Description: smssdk
+*/
 
-<p style="color: #ccc; margin-bottom: 30px;">来自于：Mob官方<a style="background-color: #95ba20; color:#fff; padding:4px 8px;border-radius:5px;margin-left:30px; margin-bottom:0px; font-size:12px;text-decoration:none;" target="_blank" href="//www.mob.com">立即使用</a></p>
+<p style="color: #ccc; margin-bottom: 30px;">来自于：Mob官方<a style="background-color: #95ba20; color:#fff; padding:4px 8px;border-radius:5px;margin-left:30px; margin-bottom:0px; font-size:12px;text-decoration:none;" target="_blank" href="//www.apicloud.com/mod_detail/smssdk">立即使用</a></p>
 
 <div class="outline">
 
@@ -22,13 +25,13 @@
 
 </div>
 
-# <font color=#00B2EE>**概述**</font>
+##概述
 
 短信验证码SDK，为开发者提供全球通用的短信验证码工具，开发者可以用其在App植入短信验证码SDK、简单设置即可短信验证，集成快速便捷，且后期易于管理。
-<br>
-### <font color=#00B2EE>**配置集成**</font>
 
-开发者使用本模块之前需要先到[Mob官网](http://www.mob.com)申请开发者账号，并在账号内填写相应信息创建自己的 APP，从而获取 <font color=#DC143C>AppKey</font>和<font color=#DC143C>AppSecret</font>,然后添加SMSSDK功能,获取<font color=#DC143C>模板id</font>.
+####配置集成
+
+开发者使用本模块之前需要先到[Mob官网](http://www.mob.com)申请开发者账号，并在账号内填写相应信息创建自己的 APP，从而获取**AppKey**和**AppSecret**,然后添加SMSSDK功能,获取**模板id**。
 
 详情参考:[快速集成获取apppkey和appSecret](http://wiki.mob.com/快速集成-11/)
 
@@ -43,15 +46,15 @@
     市场合作:   021-54623100
     
 <br>
-###  <font color=#00B2EE>**模块使用攻略**</font>
+####模块使用攻略
 
 <p>
 **使用此模块之前android需先配置config.xml文件，方法如下：**
     
 
 ```
-	<meta-data name="MOBAppKey" value="moba6b6c6d6"/>
-	<meta-data name="MOBAppSecret" value="b89d2427a3bc7ad1aea1e1e8c1d36bf3"/>
+	<meta-data name="Mob-AppKey" value="moba6b6c6d6"/>
+	<meta-data name="Mob-AppSecret" value="b89d2427a3bc7ad1aea1e1e8c1d36bf3"/>
 	
 ```
 ios 需要将plist 文件放入res目录下，文件内容内容：
@@ -70,18 +73,15 @@ ios 需要将plist 文件放入res目录下，文件内容内容：
 
 - 字段描述:
  
-    Mob-AppKey：（必须配置）从Mob官网获取的 AppKey。AppKey 申请方法参考[快速集成获取apppkey和appSecret](http://wiki.mob.com/快速集成-11/)。
+    **Mob-AppKey**：（必须配置）从Mob官网获取的 AppKey。AppKey 申请方法参考[快速集成获取apppkey和appSecret](http://wiki.mob.com/快速集成-11/)。
 
-    Mob-AppSecret：（必须配置）从Mob官网获取的 AppSecret。AppSecret 申请方法参考[快速集成获取apppkey和appSecret](http://wiki.mob.com/快速集成-11/)。
-    
-    <br>
-<font color=red>**编译app时ios 请配置访问联系人的权限**</font>
+    **Mob-AppSecret**：（必须配置）从Mob官网获取的 AppSecret。AppSecret 申请方法参考[快速集成获取apppkey和appSecret](http://wiki.mob.com/快速集成-11/)。
 
-<br>
-### [实例widget下载地址](https://www.mob.com)
+**编译app时iOS 请配置访问联系人的权限**
 
-<br>
-# <font color=#00B2EE>**模块接口**</font>
+### [实例widget下载地址](https://github.com/MobClub/SMSSDK-for-APICloud-Demo)
+
+##模块接口
 
 需要引入模块:
 ```
@@ -89,7 +89,7 @@ var moduleSMSSDK = api.require('smssdk');
 ```
 <div id="a1"></div>
     
-# <font color=#00B2EE>**getTextCode**</font>
+#**getTextCode**
 获取文本验证码(Get text verification code)
 ```
 getTextCode({params}, callback(ret,err))
@@ -158,7 +158,7 @@ moduleSMSSDK.getTextCode(param, function(ret, err){
 ``` 
 
 <div id="a2"></div>
-# <font color=#00B2EE>**getVoiceCode**</font>
+#**getVoiceCode**
 
 获取语音验证码(Get text verification code)
 ```
@@ -179,11 +179,6 @@ zone:
 - 	默认值：无
 - 	描述：区域号，不要加"+"号
 
-tempCode:
-
-- 类型：字符串
-- 	默认值：无
-- 	描述：模板id
 
 
 ###callback(ret, err)
@@ -212,7 +207,7 @@ err：
  
 ```                  
 // param中的key命名不能改变
-var param = {zone:'86', phoneNumber:'18500000000', tempCode:'1319972'};
+var param = {zone:'86', phoneNumber:'18500000000'};
 moduleSMSSDK.getVoiceCode(param, function(ret, err){
   if (err !== null && err !== undefined && err !== '') {
    // 错误消息示例：{"msg":"Template not exist.","code":484}
@@ -226,7 +221,7 @@ moduleSMSSDK.getVoiceCode(param, function(ret, err){
 ```                    
 
 <div id="a3"></div>
-# <font color=#00B2EE>**commitCode**</font>
+#**commitCode**
 
 提交验证码(Commit the verification code)
 
@@ -292,7 +287,7 @@ if (err !== null && err !== undefined && err !== '') {
 ```
 
 <div id="a4"></div>
-# <font color=#00B2EE>**getSupportedCountries**</font>
+#**getSupportedCountries**
 
 
 获取区号(Get the Area code of the country)
@@ -348,7 +343,7 @@ moduleSMSSDK.getSupportedCountries(function(ret, err){
 ```
 
 <div id="a5"></div>
-# <font color=#00B2EE>**getFriends**</font>
+#**getFriends**
 
 
 向服务端请求获取通讯录好友信息
@@ -426,7 +421,7 @@ moduleSMSSDK.getFriends(function(ret, err){
 ```
 
 <div id="a6"></div>
-# <font color=#00B2EE>**submitUserInfo**</font>
+#**submitUserInfo**
 
 
 提交用户资料(Submit the user information data)
@@ -508,7 +503,7 @@ moduleSMSSDK.submitUserInfo(param, function(ret, err){
 ```
 
 <div id="a7"></div>
-# <font color=#00B2EE>**getVersion**</font>
+#**getVersion**
 
 
 返回SDK版本号(Return the version number of this SDK)
@@ -550,14 +545,13 @@ if (err !== null && err !== undefined && err !== '') {
 
 ```
 <div id="a8"></div>
-# <font color=#00B2EE>**enableWarn**</font>
+#**enableWarn**
 
 
 是否允许访问通讯录好友(is Allowed to access to address book)
 ```
 enableWarn({params})
 ```
-
 
 ###params:
 
